@@ -1,0 +1,449 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Apply background image with low opacity */
+body {
+    background-image: url('images/Untitled-1.png'); /* Replace with the image URL or file path */
+    background-size: cover; /* Ensure the image covers the entire body */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position:center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    
+    /* Add overlay for opacity effect */
+    position: relative; /* Set relative position for overlay */
+}
+
+body::before {
+    content: ""; /* Required for pseudo-element */
+    position: absolute;
+filter: opacity(0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Position behind the body content */
+}
+
+
+.fruit-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.fruit {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.8;
+    animation: fallFruits linear infinite;
+}
+
+/* Keyframes for Falling Animation */
+@keyframes fallFruits {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+/* Fixed Header with Frosted Glass Effect */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px;
+    background: rgba(246, 248, 253, 0); /* Transparent layer for glass effect */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    z-index: 1000;
+    overflow: hidden; /* Ensure the pseudo-element stays inside */
+    border-bottom: white solid 1px;
+
+}
+.header-blur-effect {
+    position: fixed; /* Fix position for the blur layer */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    background:transparent;
+    z-index: -10; /* Ensure it appears above other content */
+    border-bottom: white solid 1px;
+}
+
+
+/* Centered Logo */
+.logo {
+    flex: 1;
+    color: #343434;
+    display: flex;
+    position: absolute;
+    top: 22px;
+    left: 50vw;
+    transform: translateX(-50%);
+}
+
+/* Main Background Styling */
+.intro-section {
+    position: relative;
+   border-bottom: #f5f5f5 0.5px solid;
+    margin-top: 0px;
+    margin-bottom: 70px;
+    padding-top: 80px;
+    padding-bottom: 0px;
+    font-family: 'Poppins', sans-serif;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    background: #ffa220; /* Frosted glass effect */
+  
+}
+
+.marquee {
+    display: flex; /* Keeps text inline */
+    gap: 600px; /* Adds spacing between text lines */
+    overflow: hidden; /* Ensures text stays within the container */
+    white-space: nowrap; /* Prevents text wrapping */
+    animation: move-train 30s linear infinite; /* Creates continuous scrolling */
+}
+
+.marquee h8, .marquee h9 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes move-train {
+    from {
+        transform: translateX(100%); /* Start off-screen on the right */
+    }
+    to {
+        transform: translateX(-100%); /* Move off-screen on the left */
+    }
+}
+
+.container {
+    width: 100%; /* Occupies full width */
+    overflow: hidden; /* Prevents text from spilling out */
+}
+
+@media (max-width: 768px) {
+    .marquee {
+        display: flex;
+        gap: 50px; /* Space between texts */
+        overflow: hidden;
+        white-space: nowrap;
+        animation: move-train 15s linear infinite;
+        width: 200%; /* Make the container wide enough to display full text */
+    }
+    .logo {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .marquee {
+        display: flex;
+        gap: 50px; /* Space between texts */
+        overflow: hidden;
+        white-space: nowrap;
+        animation: move-train 20s linear infinite;
+        width: 200%; /* Make the container wide enough to display full text */
+    }
+}
+
+.intro-section h8 {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff; /* Minimal heading color */
+    margin-bottom: 0px;
+   
+}
+.intro-section h9 {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff; /* Minimal heading color */
+    margin-bottom: 0px;
+   
+}
+/* Login Form Section */
+.login-container {
+    max-width: 400px;
+    margin:auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #333;
+}
+
+/* Title */
+.login-container h2 {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Form Styling */
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label Styling */
+label {
+    text-align: left;
+    font-size: 15px;
+    margin-top: 12px;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 15px;
+    transition: all 0.3s;
+    color: #222;
+}
+
+/* Focus Effect */
+input:focus {
+    border-color: #00796b;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
+}
+
+/* Password Input Wrapper */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+/* Show/Hide Password Icon */
+.password-wrapper i {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.3s;
+}
+
+.password-wrapper i:hover {
+    color: #333;
+}
+
+/* Remember Me & Forgot Password - Now in Two Rows */
+.remember-forgot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember-forgot input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.remember-forgot a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    background-color :#00796b; 
+    border:transparent 3px solid;
+    color: white;
+    border-radius: 0px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition: ease-in-out 0.3s;
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Button Hover */
+button:hover {
+    background: white;
+    color: #00796b; 
+    border-color: #00796b; 
+    box-shadow: 0px 5px 15px rgba(10, 48, 6, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Signup Link */
+.login-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-container a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+#forgot-password-section {
+    max-width: 400px;
+    margin:10px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #333;
+}
+
+#forgot-password-section input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+#forgot-password-section button {
+    width: 100%;
+    padding: 14px;
+    background: #00796b;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+#forgot-password-section button:hover{
+    background: #004d40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#forgot-password-section label {
+    font-weight: bold;
+}
+
+#otp-box, #reset-password-box {
+    margin-top: 15px;
+}
+
+#otp-box input, #reset-password-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+#otp-box button, #reset-password-box button {
+    width: 100%;
+    padding: 14px;
+    background: #000000;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+#otp-box button, #reset-password-box button:hover{
+    background: #004d40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);   
+}
+/* Media Queries for Specific Screen Sizes */
+@media (max-width: 768px) {
+    .login-container, #forgot-password-section {
+        max-width: 80%; /* Use full width on smaller devices */
+        padding: 15px;
+    }
+
+    input, button {
+        font-size: 13px; /* Slightly smaller input and button text */
+        padding: 8px; /* Reduced padding for compactness */
+    }
+
+    #otp-box input, #reset-password-box input {
+        font-size: 13px; /* Compact input font for mobile */
+    }
+
+    .remember-forgot {
+        flex-direction: column; /* Stack elements vertically for mobile */
+        align-items: flex-start; /* Align text to the left */
+    }
+
+    .remember-forgot a {
+        font-size: 12px; /* Smaller text for links */
+    }
+}
