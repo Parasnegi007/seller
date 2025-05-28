@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 alert("Login successful! Redirecting to dashboard...");
                 setTimeout(() => {
-                    window.location.href = "dashboard.html";
+                    window.location.href = "index.html";
                 }, 500);
                 localStorage.setItem("authToken", data.token);
                 localStorage.setItem("loggedInUser", JSON.stringify(data.user));
